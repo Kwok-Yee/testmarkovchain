@@ -20,7 +20,7 @@ int main()
 	int loops = 0;
 
 	// Sleep time
-	int time = 2000;
+	int time = 1000;
 
 	while (true)
 	{
@@ -42,7 +42,7 @@ int main()
 			stateThreeCount++;
 			break;
 		}
-		cout << "CURRENT STATE > " << currentState << endl;
+		cout << "Generated Random: " << getRandom() << " CURRENT STATE > " << currentState << endl;
 		if(loops % 5 == 0)
 			cout << "Sunny: " << stateOneCount << ", Rainy: " << stateTwoCount << ", Windy: " << stateThreeCount << endl;
 	}
