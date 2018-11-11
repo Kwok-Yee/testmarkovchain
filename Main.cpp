@@ -15,6 +15,7 @@ int main()
 	int stateOneCount = 0;
 	int stateTwoCount = 0;
 	int stateThreeCount = 0;
+	int stateFourCount = 0;
 
 	// Total loops
 	int loops = 0;
@@ -41,10 +42,14 @@ int main()
 			currentState = "WINDY";
 			stateThreeCount++;
 			break;
+		case 3:
+			currentState = "STORMING";
+			stateFourCount++;
+			break;
 		}
-		cout << "Generated Random: " << getRandom() << " CURRENT STATE > " << currentState << endl;
+		cout << "CURRENT STATE > " << currentState << endl; // " Generated Random: " << getRandom() << endl;
 		if(loops % 5 == 0)
-			cout << "Sunny: " << stateOneCount << ", Rainy: " << stateTwoCount << ", Windy: " << stateThreeCount << endl;
+			cout << "Sunny: " << stateOneCount << ", Rainy: " << stateTwoCount << ", Windy: " << stateThreeCount << ", Storming: " << stateFourCount << endl;
 	}
 
 	cin.get();
