@@ -2,11 +2,41 @@
 #include <Windows.h>
 #include <string>
 #include <iostream>
+#include <list>
 
 using namespace std;
 
+#define STATES 4
+
 int main()
 {
+	//int transitions[STATES][STATES] =
+	//{
+	//	{00, 01, 02, 03}, // SUNNY, RAINING, WINDY, STORMING
+	//	{11, 10, 12, 13}, // RAINING, SUNNY, WINDY, STORMING
+	//	{22, 20, 21, 23}, // WINDY, SUNNY, RAINING, STORMING
+	//	{33, 30, 31, 32} // WINDY, SUNNY, RAINING, STORMING
+	//};
+
+	// Probability arrays
+	double sunnyProbs[STATES] = { 0.5, 0.2, 0.2, 0.1 };
+	double rainingProbs[STATES] = { 0.3, 0.2, 0.3, 0.2 };
+	double windyProbs[STATES] = { 0.3, 0.2, 0.3, 0.2 };
+	double stormingProbs[STATES] = { 0.4, 0.1, 0.3, 0.2 };
+
+	double* probsArray[STATES];
+	probsArray[0] = sunnyProbs;
+	probsArray[1] = rainingProbs;
+	probsArray[2] = windyProbs;
+	probsArray[3] = stormingProbs;
+
+	// Probabilities
+	double** probs = new double*[STATES];
+	for (size_t i = 0; i < STATES; i++)
+	{
+		probs[i] = probsArray[i];
+	}
+
 	// Current states
 	string currentState = "";
 	int current = 0;
@@ -27,7 +57,7 @@ int main()
 	{
 		Sleep(time);
 		loops++;
-		current = calculateWeatherState();
+		current = calculateWeatherState(STATES, probs);
 		switch (current)
 		{
 		case 0:
