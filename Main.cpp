@@ -10,14 +10,6 @@ using namespace std;
 
 int main()
 {
-	//int transitions[STATES][STATES] =
-	//{
-	//	{00, 01, 02, 03}, // SUNNY, RAINING, WINDY, STORMING
-	//	{11, 10, 12, 13}, // RAINING, SUNNY, WINDY, STORMING
-	//	{22, 20, 21, 23}, // WINDY, SUNNY, RAINING, STORMING
-	//	{33, 30, 31, 32} // WINDY, SUNNY, RAINING, STORMING
-	//};
-
 	// Transition arrays
 	int sunnyTrans[STATES] = { 00, 01, 02, 03 };
 	int rainingTrans[STATES] = { 11, 10, 12, 13 };
