@@ -18,6 +18,25 @@ int main()
 	//	{33, 30, 31, 32} // WINDY, SUNNY, RAINING, STORMING
 	//};
 
+	// Transition arrays
+	int sunnyTrans[STATES] = { 00, 01, 02, 03 };
+	int rainingTrans[STATES] = { 11, 10, 12, 13 };
+	int windyTrans[STATES] = { 22, 20, 21, 23 };
+	int stormingTrans[STATES] = { 33, 30, 31, 32 };
+
+	int* transArray[STATES];
+	transArray[0] = sunnyTrans;
+	transArray[1] = rainingTrans;
+	transArray[2] = windyTrans;
+	transArray[3] = stormingTrans;
+
+	// Transitions matrix
+	int** trans = new int*[STATES];
+	for (size_t i = 0; i < STATES; i++)
+	{
+		trans[i] = transArray[i];
+	}
+
 	// Probability arrays
 	double sunnyProbs[STATES] = { 0.5, 0.2, 0.2, 0.1 };
 	double rainingProbs[STATES] = { 0.3, 0.2, 0.3, 0.2 };
@@ -30,7 +49,7 @@ int main()
 	probsArray[2] = windyProbs;
 	probsArray[3] = stormingProbs;
 
-	// Probabilities
+	// Probabilities matrix
 	double** probs = new double*[STATES];
 	for (size_t i = 0; i < STATES; i++)
 	{
@@ -57,7 +76,7 @@ int main()
 	{
 		Sleep(time);
 		loops++;
-		current = calculateWeatherState(STATES, probs);
+		current = calculateWeatherState(STATES, trans, probs);
 		switch (current)
 		{
 		case 0:
