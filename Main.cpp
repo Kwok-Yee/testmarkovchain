@@ -14,11 +14,11 @@ int main()
 	typedef double ** dMatrix;
 
 	// Transition arrays
-	int sunnyTrans[STATES] = { 00, 01, 02, 03, 04 };
-	int rainingTrans[STATES] = { 11, 10, 12, 13, 14 };
-	int windyTrans[STATES] = { 22, 20, 21, 23, 24 };
-	int stormingTrans[STATES] = { 33, 30, 31, 32, 34 };
-	int snowingTrans[STATES] = { 44, 40, 41, 42, 43 };
+	int sunnyTrans[STATES] = { 0, 1, 2, 3, 4 };
+	int rainingTrans[STATES] = { 1, 0, 2, 3, 4 };
+	int windyTrans[STATES] = { 2, 0, 1, 3, 4 };
+	int stormingTrans[STATES] = { 3, 0, 1, 2, 4 };
+	int snowingTrans[STATES] = { 4, 0, 1, 2, 3 };
 
 	int* transArray[STATES];
 	transArray[0] = sunnyTrans;
@@ -80,23 +80,23 @@ int main()
 		switch (current)
 		{
 		case 0:
-			currentState = "SUNNY";
+			currentState = "SUNNY 0";
 			stateOneCount++;
 			break;
 		case 1:
-			currentState = "RAINY";
+			currentState = "RAINY 1";
 			stateTwoCount++;
 			break;
 		case 2:
-			currentState = "WINDY";
+			currentState = "WINDY 2";
 			stateThreeCount++;
 			break;
 		case 3:
-			currentState = "STORMING";
+			currentState = "STORMING 3";
 			stateFourCount++;
 			break;
 		case 4:
-			currentState = "SNOWING";
+			currentState = "SNOWING 4";
 			stateFiveCount++;
 			break;
 		}
