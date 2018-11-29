@@ -80,23 +80,23 @@ int main()
 		switch (current)
 		{
 		case 0:
-			currentState = "SUNNY 0";
+			currentState = "SUNNY";
 			stateOneCount++;
 			break;
 		case 1:
-			currentState = "RAINY 1";
+			currentState = "RAINY";
 			stateTwoCount++;
 			break;
 		case 2:
-			currentState = "WINDY 2";
+			currentState = "WINDY";
 			stateThreeCount++;
 			break;
 		case 3:
-			currentState = "STORMING 3";
+			currentState = "STORMING";
 			stateFourCount++;
 			break;
 		case 4:
-			currentState = "SNOWING 4";
+			currentState = "SNOWING";
 			stateFiveCount++;
 			break;
 		}
